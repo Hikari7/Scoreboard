@@ -1,7 +1,5 @@
-const up = document.getElementById("up");
-const down = document.getElementById("down");
-const tomato = document.querySelector("tomato");
-const blue = document.querySelector("blue");
+const up = document.querySelectorAll("up");
+const down = document.querySelectorAll("down");
 
 let i = 0;
 

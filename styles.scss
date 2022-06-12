@@ -38,36 +38,42 @@ h1 {
   width: 400px;
   background-color: #bada55;
   border-radius: 30px;
-  height: 260px;
+  height: 300px;
   justify-content: center;
 }
 
 p {
 margin: auto 0;
-line-height: 135px;
+line-height: 150px;
 }
 
-.player1 {
+.name {
+  margin-top: 16px;
+  color: #fff;
+  font-family: "Graduate", cursive;
+}
+
+.playerA {
   @include players;
   margin-top: 20px;
   background-color: tomato;
-  align-items: center;
 }
 
-.player2 {
+
+.playerB {
   @include players;
   margin-top: 20px;
   background-color: lightblue;
 }
 
-.players_counter {
-  display: flex;
-}
-
-.player2 {
-  margin-left: 16px;
+.playerB {
+  margin-left:24px;
 }
 
 .down, .up {
   @include score;
+}
+
+.down {
+  margin-left: 12px;
 }
