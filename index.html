@@ -11,30 +11,48 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
   </head>
   <body>
     <h1>🏸Score board🏸</h1>
     <div class="scoreboard">
       <div class="players">
+        <!-- Player A -->
         <div class="score">
           <div class="name">Player A</div>
-          <div class="playerA"><p>0</p></div>
-          <div class="playerA_counter">
-            <button class="up">+1</button>
-            <button class="down">-1</button>
+          <div class="a_player"><p>0</p></div>
+          <div class="a_counter">
+            <button class="a_up">+1</button>
+            <button class="a_reset">Reset</button>
           </div>
         </div>
+
+        <!-- Player B -->
         <div class="score">
           <div class="name">Player B</div>
-          <div class="playerB"><p>0</p></div>
-          <div class="playerB_counter">
-            <button class="up">+1</button>
-            <button class="down">-1</button>
+          <div class="b_player"><p>0</p></div>
+          <div class="b_counter">
+            <button class="b_up">+1</button>
+            <button class="b_reset">Reset</button>
           </div>
         </div>
       </div>
     </div>
-
+    <!-- ドロップダウンメニュー -->
+    <div class="score_setting">
+      <nav>
+        <ul class="scores">
+          <p class='dropdown_menu'>Score</p>
+          <li class="dropdown_item">21</li>
+          <li class="dropdown_item">15</li>
+          <li class="dropdown_item">10</li>
+          <li class="dropdown_item">5</li>
+        </ul>
+      </nav>
+    </div>
     <script src="js/main.js"></script>
   </body>
 </html>

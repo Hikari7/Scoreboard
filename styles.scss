@@ -42,9 +42,9 @@ h1 {
   justify-content: center;
 }
 
-p {
-margin: auto 0;
-line-height: 150px;
+.score p {
+  margin: auto 0;
+  line-height: 150px;
 }
 
 .name {
@@ -53,27 +53,50 @@ line-height: 150px;
   font-family: "Graduate", cursive;
 }
 
-.playerA {
+.a_player {
   @include players;
   margin-top: 20px;
   background-color: tomato;
 }
 
-
-.playerB {
+.b_player {
   @include players;
   margin-top: 20px;
   background-color: lightblue;
+  margin-left: 24px;
 }
 
-.playerB {
-  margin-left:24px;
-}
-
-.down, .up {
+.a_up,
+.b_up,
+.a_reset,
+.b_reset {
   @include score;
 }
 
-.down {
+.a_reset,
+.b_reset {
   margin-left: 12px;
+}
+
+.score_setting {
+  @include center;
+  font-family: "Graduate", cursive;
+  color: #7d7c7c;
+}
+
+.score_setting p {
+  cursor: pointer;
+  border: solid 2px #7d7c7c;
+  width: 120px;
+  margin: 0 auto;
+  height: 24px;
+  border-radius: 8px;
+}
+
+.dropdown_item {
+  display: none;
+  
+  &.open {
+    display: block;
+  }
 }
