@@ -13,12 +13,13 @@
 }
 
 @mixin score {
-  width: 50px;
+  width: 60px;
   height: 50px;
   background-color: #fff;
   opacity: 0.8;
   border-radius: 10px;
   margin-top: 12px;
+  font-family: "Graduate", cursive;
 }
 
 h1 {
@@ -50,6 +51,7 @@ h1 {
 .name {
   margin-top: 16px;
   color: #fff;
+  font-size: 18px;
   font-family: "Graduate", cursive;
 }
 
@@ -57,13 +59,14 @@ h1 {
   @include players;
   margin-top: 20px;
   background-color: tomato;
+  margin-right: 12px;
 }
 
 .b_player {
   @include players;
   margin-top: 20px;
   background-color: lightblue;
-  margin-left: 24px;
+  margin-left: 12px;
 }
 
 .a_up,
@@ -78,13 +81,9 @@ h1 {
   margin-left: 12px;
 }
 
-.score_setting {
-  @include center;
-  font-family: "Graduate", cursive;
-  color: #7d7c7c;
-}
+//Dropdown_menu
 
-.score_setting p {
+@mixin dropdown {
   cursor: pointer;
   border: solid 2px #7d7c7c;
   width: 120px;
@@ -93,10 +92,41 @@ h1 {
   border-radius: 8px;
 }
 
+.dropdown_menu {
+  @include dropdown;
+  @include center;
+  font-family: "Graduate", cursive;
+  color: #7d7c7c;
+  &.hidden {
+    opacity: 0.5;
+  }
+}
+
 .dropdown_item {
-  display: none;
-  
-  &.open {
+  @include dropdown;
+  @include center;
+  font-family: "Graduate", cursive;
+  color: #7d7c7c;
+  opacity: 0;
+  transform: translateY(0px);
+  transition: opacity 0.3s, transform 0.3s;
+
+  &.active {
     display: block;
+    opacity: 1;
+    transform: none;
+  }
+
+  &.active:nth-child(1) {
+    transition-delay: 0.3s;
+  }
+  &.active:nth-child(2) {
+    transition-delay: 0.4s;
+  }
+  &.active:nth-child(3) {
+    transition-delay: 0.5s;
+  }
+  &.active:nth-child(4) {
+    transition-delay: 0.6s;
   }
 }

@@ -29,6 +29,7 @@ h1 {
 .name {
   margin-top: 16px;
   color: #fff;
+  font-size: 18px;
   font-family: "Graduate", cursive;
 }
 
@@ -41,6 +42,7 @@ h1 {
   color: #fff;
   margin-top: 20px;
   background-color: tomato;
+  margin-right: 12px;
 }
 
 .b_player {
@@ -52,19 +54,20 @@ h1 {
   color: #fff;
   margin-top: 20px;
   background-color: lightblue;
-  margin-left: 24px;
+  margin-left: 12px;
 }
 
 .a_up,
 .b_up,
 .a_reset,
 .b_reset {
-  width: 50px;
+  width: 60px;
   height: 50px;
   background-color: #fff;
   opacity: 0.8;
   border-radius: 10px;
   margin-top: 12px;
+  font-family: "Graduate", cursive;
 }
 
 .a_reset,
@@ -72,25 +75,51 @@ h1 {
   margin-left: 12px;
 }
 
-.score_setting {
-  text-align: center;
-  justify-content: space-between;
-  font-family: "Graduate", cursive;
-  color: #7d7c7c;
-}
-
-.score_setting p {
+.dropdown_menu {
   cursor: pointer;
   border: solid 2px #7d7c7c;
   width: 120px;
   margin: 0 auto;
   height: 24px;
   border-radius: 8px;
+  text-align: center;
+  justify-content: space-between;
+  font-family: "Graduate", cursive;
+  color: #7d7c7c;
+}
+.dropdown_menu.hidden {
+  opacity: 0.5;
 }
 
 .dropdown_item {
-  display: none;
+  cursor: pointer;
+  border: solid 2px #7d7c7c;
+  width: 120px;
+  margin: 0 auto;
+  height: 24px;
+  border-radius: 8px;
+  text-align: center;
+  justify-content: space-between;
+  font-family: "Graduate", cursive;
+  color: #7d7c7c;
+  opacity: 0;
+  transform: translateY(0px);
+  transition: opacity 0.3s, transform 0.3s;
 }
-.dropdown_item.open {
+.dropdown_item.active {
   display: block;
+  opacity: 1;
+  transform: none;
+}
+.dropdown_item.active:nth-child(1) {
+  transition-delay: 0.3s;
+}
+.dropdown_item.active:nth-child(2) {
+  transition-delay: 0.4s;
+}
+.dropdown_item.active:nth-child(3) {
+  transition-delay: 0.5s;
+}
+.dropdown_item.active:nth-child(4) {
+  transition-delay: 0.6s;
 }
