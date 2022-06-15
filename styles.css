@@ -1,3 +1,7 @@
+html {
+  background-color: rgb(252, 216, 222);
+}
+
 h1 {
   margin-top: 32px;
   font-family: "Graduate", cursive;
@@ -82,44 +86,72 @@ h1 {
   margin: 0 auto;
   height: 24px;
   border-radius: 8px;
-  text-align: center;
-  justify-content: space-between;
   font-family: "Graduate", cursive;
   color: #7d7c7c;
+  letter-spacing: 2px;
+  text-align: center;
+  justify-content: space-between;
 }
 .dropdown_menu.hidden {
-  opacity: 0.5;
+  display: none;
 }
 
-.dropdown_item {
-  cursor: pointer;
-  border: solid 2px #7d7c7c;
-  width: 120px;
-  margin: 0 auto;
-  height: 24px;
-  border-radius: 8px;
+.score_setting.hidden {
+  display: none;
+}
+
+.dropdown_items {
   text-align: center;
   justify-content: space-between;
-  font-family: "Graduate", cursive;
-  color: #7d7c7c;
   opacity: 0;
-  transform: translateY(0px);
+  padding: 16px 20px;
+  height: auto;
+  width: 150px;
+  margin: 0 auto;
+  color: #adadad;
+  font-size: 14px;
+  font-weight: bold;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+.dropdown_items .dropdown_items nav::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 15px solid;
+  border-color: transparent transparent #fff transparent;
+  z-index: 1;
+}
+.dropdown_items .dropdown_items:hover {
   transition: opacity 0.3s, transform 0.3s;
 }
-.dropdown_item.active {
-  display: block;
+.dropdown_items.active {
   opacity: 1;
   transform: none;
+  list-style: none;
+  cursor: pointer;
 }
-.dropdown_item.active:nth-child(1) {
+.dropdown_items .dropdown_item {
+  width: auto;
+  background: #fff;
+}
+.dropdown_items .dropdown_item.dropdown_item:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+.dropdown_items .dropdown_item.active:nth-child(1) {
   transition-delay: 0.3s;
 }
-.dropdown_item.active:nth-child(2) {
+.dropdown_items .dropdown_item.active:nth-child(2) {
   transition-delay: 0.4s;
 }
-.dropdown_item.active:nth-child(3) {
+.dropdown_items .dropdown_item.active:nth-child(3) {
   transition-delay: 0.5s;
 }
-.dropdown_item.active:nth-child(4) {
+.dropdown_items .dropdown_item.active:nth-child(4) {
   transition-delay: 0.6s;
 }
