@@ -116,15 +116,23 @@ h1 {
   letter-spacing: 2px;
   position: relative;
 }
-.dropdown_items .dropdown_items nav::before {
+.dropdown_itemsli:before {
   content: "";
   position: absolute;
-  top: -30px;
+  top: 30px;
   left: 50%;
   transform: translateX(-50%);
   border: 15px solid;
   border-color: transparent transparent #fff transparent;
   z-index: 1;
+}
+.dropdown_items li:last-child {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.dropdown_items li:first-child {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 .dropdown_items .dropdown_items:hover {
   transition: opacity 0.3s, transform 0.3s;
