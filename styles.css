@@ -98,6 +98,9 @@ h1 {
 .dropdown_menu.hidden {
   display: none;
 }
+.dropdown_menu.dropdown_menu:hover {
+  opacity: 0.5;
+}
 
 .score_setting.hidden {
   display: none;
