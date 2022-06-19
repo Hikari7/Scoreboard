@@ -9,7 +9,7 @@ let b_player = document.querySelector(".b_player");
 let scoreBoard = {
    aScore: 0,
    bScore: 0,
-   winningScore: null
+  //  winningScore: null
 }
 
 function countA() {
@@ -40,13 +40,14 @@ countB();
 
 //dropdown menu
 
-const scoreSet = document.querySelector(".score_setting");
-const menuBtn = document.querySelector(".dropdown_menu");
-const menuItems = document.querySelector(".dropdown_items");
-const item = document.querySelector(".dropdown_item");
+let scoreSet = document.querySelector(".score_setting");
+let menuBtn = document.querySelector(".dropdown_menu");
+let menuItems = document.querySelector(".dropdown_items");
+let item = document.querySelectorAll(".dropdown_item");
 
-const item21 = document.querySelector ("dropdown_item21");
+// let item21 = document.querySelector ("dropdown_item21");
 
+//functionで囲う必要なくない？
 function openItems() {
   //when you click the score menu
   menuBtn.addEventListener("click", () => {
@@ -54,23 +55,40 @@ function openItems() {
     menuItems.classList.toggle("active");
   });
 }
+openItems();
 
+console.log(menuItems);
 
+let convertedArr = Array.from(menuItems);
+item.forEach((menuitem) => {
+  menuitem.addEventListener("click", (e) => {
+    //menuItemsの各要素を取得できました
+    console.log(menuitem);
 
-function selectScore() {
+// function selectScore() {
+// }
   // 各itemのquerySelectorAllを配列に変える
-  // const convertedArr = Array.from(item);
-  // convertedArr.forEach((el) => {
-    // item.addEventListener("click", (e) => {
-    //   scoreBoard.winningScore = parseInt(item.item);
 
-    //   console.log(scoreBoard.winningScore);
-    // });
-  // });
+
+      //value属性で取得する
+      // let winningScore = this.menuItems.innerHTML;
+      // convertedArr.getAttribute("value"); 
+
+      
+      
+      //spanか何かでスコアを表示させて、innerHTMLで撮ってくる→スコア表示
+      //elをif分で作りながら((p1Score < winPointsみたいに)最終的にtextContentでwonって出す
+      
+
+      // scoreBoard.winningScore = parseInt(item.item);
+      // console.log(scoreBoard.winningScore);
+
+
+    });
+  });
 
   // item21.addEventListener('click', () => {
   //   console.log("got the value");
   // })
-}
 
-openItems();
+// selectScore();
