@@ -84,6 +84,14 @@ h1 {
   @include score;
 }
 
+.a_up,
+.b_up {
+&.deactivate{
+  pointer-events:none
+}
+
+}
+
 .a_reset,
 .b_reset {
   margin-left: 12px;
@@ -94,7 +102,7 @@ h1 {
 @mixin dropdown {
   cursor: pointer;
   border: solid 2px #7d7c7c;
-  width: 120px;
+  width: 350px;
   margin: 0 auto;
   height: 24px;
   border-radius: 8px;
@@ -139,7 +147,7 @@ h1 {
   align-items: center;
   text-transform: uppercase;
   letter-spacing: 2px;
-  position: relative; //ちがう？？
+  position: relative; //
 
   & li:last-child {
     border-bottom-left-radius: 6px;

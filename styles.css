@@ -78,6 +78,11 @@ h1 {
   margin-top: 12px;
 }
 
+.a_up.deactivate,
+.b_up.deactivate {
+  pointer-events: none;
+}
+
 .a_reset,
 .b_reset {
   margin-left: 12px;
@@ -86,7 +91,7 @@ h1 {
 .dropdown_menu {
   cursor: pointer;
   border: solid 2px #7d7c7c;
-  width: 120px;
+  width: 350px;
   margin: 0 auto;
   height: 24px;
   border-radius: 8px;

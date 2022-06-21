@@ -8,67 +8,98 @@ let b_point = document.querySelector(".b_point");
 let aScore = 0;
 let bScore = 0;
 
-
-
-
-
-function countA() {
-  a_up.addEventListener("click", () => {
-    aScore++;
-    a_point.textContent = aScore;
-  });
-  
-  //変数ごと初期化
-  a_reset.addEventListener("click", () => {
-    aScore = 0;
-    a_point.textContent = aScore;
-  });
-}
-
-countA();
-
-function countB() {
-  b_up.addEventListener("click", () => {
-    bScore++;
-    b_point.textContent = bScore;
-  });
-  
-  //変数ごと初期化
-  b_reset.addEventListener("click", () => {
-    bScore = 0;
-    b_point.textContent = bScore;
-  });
-}
-
-countB();
-
 //dropdown menu
-let  = document.querySelector(".score_setting");
+let = document.querySelector(".score_setting");
 let menuBtn = document.querySelector(".dropdown_menu");
-let menuItems = document.querySelector(".dropdown_items");    //ul要素
-let item = document.querySelectorAll(".dropdown_item");　　//li要素
-
+let menuItems = document.querySelector(".dropdown_items"); //ul要素
+let item = document.querySelectorAll(".dropdown_item"); //li要素
 // let item21 = document.querySelector ("dropdown_item21");
+
+function allReset() {
+  aScore = 0;
+  bScore = 0;
+  a_up.classList.remove("deactivate");
+  b_up.classList.remove("deactivate");
+}
+
+// const answer = confirm("Do you want to play again?");
+// if (answer) {
+//   newGame();
+// }  {
+//   ("Nice game!");
+// };
+// continueGame();
+
+// while(answer == true) {
+
+//set the winning score:
+let winScore = document.querySelector(".winning_score");
+//spanタグのスコア表示
+
 //when you click the score menu
 menuBtn.addEventListener("click", () => {
   //メニュー一覧をtoggle
   menuItems.classList.toggle("active");
 });
-
-
-
-let convertedArr = Array.from(item);//queryselectorAllを
-item.forEach((menuitem) => {　//"li"の複数要素をそれぞれ処理していく
-  menuitem.addEventListener("click", (e) => {
-    //menuItemsの各要素を取得できました
-    // console.log(menuitem);
-    
-    let winScore = document.querySelector(".winning_score");   //spanタグのスコア表示
-    winScore.innerHTML = menuitem.textContent;
-    menuItems.classList.remove("active");
-
-    //elをif分で作りながら((p1Score < winPointsみたいに)最終的にtextContentでwonって出す
-    });
+// console.log(winScore);
+let convertedArr = Array.from(item); //li要素のqueryselectorAllを
+convertedArr.forEach((li) => {
+  //"li"の複数要素をそれぞれ処理していく
+  li.addEventListener("click", () => {
+    //get the element of menuItems(item)
+    //set the winning score:
+    winScore.innerHTML = li.textContent; //item("li")要素のvalue属性をwinScoreに表示
+    menuItems.classList.remove("active"); //close the menu
+    // console.log(winScore);
   });
+});
 
-  
+
+while(aScore > winScore || bScore > winScore) {
+
+}
+
+a_up.addEventListener("click", () => {
+  aScore++;
+  a_point.textContent = aScore; //aの表示されているScore
+  if (aScore == winScore.textContent) {
+    //winScoreはtext.contentにしてNodeだったものを要素にアクセスし変換する
+    // console.dir(a_point);
+    a_point.textContent = "Win!";
+    b_point.textContent = "Lose";
+
+    a_up.classList.add("deactivate");
+    b_up.classList.add("deactivate");
+  }
+});
+
+b_up.addEventListener("click", () => {
+  bScore++;
+  b_point.textContent = bScore;
+
+  if (bScore == winScore.textContent) {
+    b_point.textContent = "Win!";
+    a_point.textContent = "Lose";
+    aScore = 0;
+    bScore = 0;
+  }
+});
+
+
+
+//reset each Scores:
+a_reset.addEventListener("click", () => {
+  aScore = 0;
+  a_point.textContent = aScore;
+  // bScore = 0;
+  // b_point.textContent = bScore;
+});
+
+b_reset.addEventListener("click", () => {
+  bScore = 0;
+  b_point.textContent = bScore;
+  // bScore = 0;
+  // b_point.textContent = bScore;
+});
+
+// }
