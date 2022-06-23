@@ -1,9 +1,10 @@
 const a_up = document.querySelector(".a_up");
-const a_reset = document.querySelector(".a_reset");
 let a_point = document.querySelector(".a_point");
+let a_down = document.querySelector(".a_down");
 const b_up = document.querySelector(".b_up");
-const b_reset = document.querySelector(".b_reset");
 let b_point = document.querySelector(".b_point");
+let b_down = document.querySelector(".b_down");
+const reset = document.querySelector(".reset");
 
 let aScore = 0;
 let bScore = 0;
@@ -15,32 +16,25 @@ let menuItems = document.querySelector(".dropdown_items"); //ul要素
 let item = document.querySelectorAll(".dropdown_item"); //li要素
 // let item21 = document.querySelector ("dropdown_item21");
 
-function allReset() {
+//set the winning score:
+let winScore = document.querySelector(".winning_score");
+//spanタグのスコア表示
+
+function restartGame() {
   aScore = 0;
   bScore = 0;
   a_up.classList.remove("deactivate");
   b_up.classList.remove("deactivate");
 }
 
-// const answer = confirm("Do you want to play again?");
-// if (answer) {
-//   newGame();
-// }  {
-//   ("Nice game!");
-// };
-// continueGame();
-
-// while(answer == true) {
-
-//set the winning score:
-let winScore = document.querySelector(".winning_score");
-//spanタグのスコア表示
-
 //when you click the score menu
+
+//メニュー一覧をtoggle
 menuBtn.addEventListener("click", () => {
-  //メニュー一覧をtoggle
   menuItems.classList.toggle("active");
+  restartGame();
 });
+
 // console.log(winScore);
 let convertedArr = Array.from(item); //li要素のqueryselectorAllを
 convertedArr.forEach((li) => {
@@ -54,11 +48,6 @@ convertedArr.forEach((li) => {
   });
 });
 
-
-while(aScore > winScore || bScore > winScore) {
-
-}
-
 a_up.addEventListener("click", () => {
   aScore++;
   a_point.textContent = aScore; //aの表示されているScore
@@ -70,6 +59,8 @@ a_up.addEventListener("click", () => {
 
     a_up.classList.add("deactivate");
     b_up.classList.add("deactivate");
+    a_down.classList.add("deactivate");
+    b_down.classList.add("deactivate");
   }
 });
 
@@ -80,26 +71,34 @@ b_up.addEventListener("click", () => {
   if (bScore == winScore.textContent) {
     b_point.textContent = "Win!";
     a_point.textContent = "Lose";
-    aScore = 0;
-    bScore = 0;
+    a_up.classList.add("deactivate");
+    b_up.classList.add("deactivate");
+    a_down.classList.add("deactivate");
+    b_down.classList.add("deactivate");
   }
 });
 
+a_down.addEventListener("click", () => {
+  if (a_point.textContent > "0") {
+    aScore--;
+    a_point.textContent = aScore;
+  } else {
+    a_down.classList.add("deactivate");
+  }
+});
 
+b_down.addEventListener("click", () => {
+  if (b_point.textContent > "0") {
+    bScore--;
+    b_point.textContent = bScore;
+  } else {
+    b_down.classList.add("deactivate");
+  }
+});
 
-//reset each Scores:
-a_reset.addEventListener("click", () => {
+reset.addEventListener("click", () => {
   aScore = 0;
   a_point.textContent = aScore;
-  // bScore = 0;
-  // b_point.textContent = bScore;
-});
-
-b_reset.addEventListener("click", () => {
   bScore = 0;
   b_point.textContent = bScore;
-  // bScore = 0;
-  // b_point.textContent = bScore;
 });
-
-// }

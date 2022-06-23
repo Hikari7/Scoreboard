@@ -1,5 +1,5 @@
 html {
-  background-color: #fcd8de;
+  background-color: rgb(252, 216, 222);
   font-family: "Graduate", cursive;
 }
 
@@ -19,6 +19,17 @@ h1 {
   margin: 16px 0;
   color: #7d7c7c;
   letter-spacing: 2px;
+  display: block;
+}
+
+.reset {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 200px;
+  color: #7d7c7c;
 }
 
 .players {
@@ -68,8 +79,8 @@ h1 {
 
 .a_up,
 .b_up,
-.a_reset,
-.b_reset {
+.b_down,
+.a_down {
   width: 60px;
   height: 50px;
   background-color: #fff;
@@ -79,7 +90,9 @@ h1 {
 }
 
 .a_up.deactivate,
-.b_up.deactivate {
+.b_up.deactivate,
+.b_down.deactivate,
+.a_down.deactivate {
   pointer-events: none;
 }
 
@@ -162,4 +175,3 @@ h1 {
 .dropdown_items .dropdown_item.dropdown_item:hover {
   background-color: lightyellow;
 }
-/*# sourceMappingURL=styles.css.map */
