@@ -20,6 +20,9 @@ let item = document.querySelectorAll(".dropdown_item"); //li要素
 let winScore = document.querySelector(".winning_score");
 //spanタグのスコア表示
 
+let isDeuce = false;
+
+
 function restartGame() {
   aScore = 0;
   bScore = 0;
@@ -49,24 +52,66 @@ convertedArr.forEach((li) => {
 });
 
 a_up.addEventListener("click", () => {
-  aScore++;
-  a_point.textContent = aScore; //aの表示されているScore
-  if (aScore == winScore.textContent) {
-    //winScoreはtext.contentにしてNodeだったものを要素にアクセスし変換する
-    // console.dir(a_point);
-    a_point.textContent = "Win!";
-    b_point.textContent = "Lose";
-
-    a_up.classList.add("deactivate");
-    b_up.classList.add("deactivate");
-    a_down.classList.add("deactivate");
-    b_down.classList.add("deactivate");
+  if(isDeuce) {
+    aScore++;
+    a_point.textContent = aScore; 
+    
+    // if(aScore > bScore+1) {
+    if(aScore-bScore==2) {
+      a_point.textContent = "Win!";
+      b_point.textContent = "Lose";
+      a_up.classList.add("deactivate");
+      b_up.classList.add("deactivate");
+      a_down.classList.add("deactivate");
+      b_down.classList.add("deactivate");
+    }
+    console.log("デュースなう");
+    
+  } else {  //デュースじゃないときの処理
+    console.log("デューちゃう",isDeuce,aScore,bScore);
+    aScore++;
+    if (aScore == bScore && aScore == winScore.textContent -1 && bScore == winScore.textContent -1 ) {
+      isDeuce = true;
+    } 
+    a_point.textContent = aScore; //aの表示されているScore
+  
+    if (aScore == winScore.textContent) {
+      //winScoreはtext.contentにしてNodeだったものを要素にアクセスし変換する
+      // console.dir(a_point);
+      a_point.textContent = "Win!";
+      b_point.textContent = "Lose";
+  
+      a_up.classList.add("deactivate");
+      b_up.classList.add("deactivate");
+      a_down.classList.add("deactivate");
+      b_down.classList.add("deactivate");
+    }
   }
 });
 
 b_up.addEventListener("click", () => {
-  bScore++;
-  b_point.textContent = bScore;
+
+  if(isDeuce) {
+    bScore++;
+    b_point.textContent = bScore;
+    
+    if(bScore-aScore==2) {
+      b_point.textContent = "Win!";
+      a_point.textContent = "Lose";
+      a_up.classList.add("deactivate");
+      b_up.classList.add("deactivate");
+      a_down.classList.add("deactivate");
+      b_down.classList.add("deactivate");
+    }
+    console.log("デュースなう");
+    
+  } else {  //デュースじゃないときの処理
+    console.log("デューちゃう",isDeuce,aScore,bScore);
+    bScore++;
+    if (aScore == bScore && aScore == winScore.textContent -1 && bScore == winScore.textContent -1 ) {
+      isDeuce = true;
+    } 
+    b_point.textContent = bScore; //aの表示されているScore
 
   if (bScore == winScore.textContent) {
     b_point.textContent = "Win!";
@@ -76,7 +121,7 @@ b_up.addEventListener("click", () => {
     a_down.classList.add("deactivate");
     b_down.classList.add("deactivate");
   }
-});
+}});
 
 a_down.addEventListener("click", () => {
   if (a_point.textContent > "0") {
