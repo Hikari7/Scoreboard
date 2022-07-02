@@ -30,6 +30,21 @@ function restartGame() {
   b_up.classList.remove("deactivate");
 }
 
+function hundleJudge(flag) {
+  if(flag === 'A') {
+    a_point.textContent = "Win!";
+    b_point.textContent = "Lose";
+  } else {
+    b_point.textContent = "Win!";
+    a_point.textContent = "Lose";
+  }
+ 
+  a_up.classList.add("deactivate");
+  b_up.classList.add("deactivate");
+  a_down.classList.add("deactivate");
+  b_down.classList.add("deactivate");
+}
+
 //when you click the score menu
 
 //メニュー一覧をtoggle
@@ -58,12 +73,7 @@ a_up.addEventListener("click", () => {
     
     // if(aScore > bScore+1) {
     if(aScore-bScore==2) {
-      a_point.textContent = "Win!";
-      b_point.textContent = "Lose";
-      a_up.classList.add("deactivate");
-      b_up.classList.add("deactivate");
-      a_down.classList.add("deactivate");
-      b_down.classList.add("deactivate");
+      hundleJudge('A');
     }
     console.log("デュースなう");
     
@@ -77,14 +87,7 @@ a_up.addEventListener("click", () => {
   
     if (aScore == winScore.textContent) {
       //winScoreはtext.contentにしてNodeだったものを要素にアクセスし変換する
-      // console.dir(a_point);
-      a_point.textContent = "Win!";
-      b_point.textContent = "Lose";
-  
-      a_up.classList.add("deactivate");
-      b_up.classList.add("deactivate");
-      a_down.classList.add("deactivate");
-      b_down.classList.add("deactivate");
+      hundleJudge('A');
     }
   }
 });
@@ -96,12 +99,7 @@ b_up.addEventListener("click", () => {
     b_point.textContent = bScore;
     
     if(bScore-aScore==2) {
-      b_point.textContent = "Win!";
-      a_point.textContent = "Lose";
-      a_up.classList.add("deactivate");
-      b_up.classList.add("deactivate");
-      a_down.classList.add("deactivate");
-      b_down.classList.add("deactivate");
+      hundleJudge("B");
     }
     console.log("デュースなう");
     
@@ -114,12 +112,7 @@ b_up.addEventListener("click", () => {
     b_point.textContent = bScore; //aの表示されているScore
 
   if (bScore == winScore.textContent) {
-    b_point.textContent = "Win!";
-    a_point.textContent = "Lose";
-    a_up.classList.add("deactivate");
-    b_up.classList.add("deactivate");
-    a_down.classList.add("deactivate");
-    b_down.classList.add("deactivate");
+    hundleJudge("B");
   }
 }});
 
